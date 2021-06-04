@@ -28,5 +28,7 @@ def student_form(request, id=0):
         return redirect('/student/list')
 
 
-def student_delete(request):
-    return
+def student_delete(request, id):
+    student = Student.objects.get(pk=id)
+    student.delete()
+    return redirect('/student/list')
